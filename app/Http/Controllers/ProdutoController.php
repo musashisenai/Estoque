@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use app\Models\Produto;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
     public function store(Request $request)
     {
-        $produto = Produto::create([
+        $produto = Produto::Create([
             'marca' => $request->marca,
             'descricao' => $request->descricao,
             'valor_unitario' => $request->valor_unitario,
             'quantidade_estoque' => $request->quantidade_estoque,
             'faixa_etaria_minima' => $request->faixa_etaria_minima
         ]);
+        
+         return response()->json($produto);
     }
     public function index()
     {
